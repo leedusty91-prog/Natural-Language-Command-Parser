@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natural Language Command Parser</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Natural Language Command Parser</h1>
+      <p class="subtitle">输入自然语言命令，AI 将解析为结构化数据</p>
+    </header>
+
+    <main class="main">
+      <div class="input-section">
+        <input
+          type="text"
+          id="commandInput"
+          placeholder="输入命令，如：把这个文档转成PDF格式"
+          autocomplete="off"
+        >
+        <button id="parseBtn">解析</button>
+      </div>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <span>正在解析...</span>
+      </div>
+
+      <div id="result" class="result hidden">
+        <div class="result-header">
+          <span class="result-label">解析结果</span>
+          <span id="intentBadge" class="intent-badge"></span>
+        </div>
+        <pre id="output"></pre>
+      </div>
+    </main>
+
+    <section id="history" class="history hidden">
+      <h2>最近命令</h2>
+      <ul id="historyList"></ul>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

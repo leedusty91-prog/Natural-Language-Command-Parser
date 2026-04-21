@@ -1,0 +1,243 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  background: #ffffff;
+  min-height: 100vh;
+  color: #1d1d1f;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #86868b;
+  font-weight: 400;
+}
+
+/* Main Content */
+.main {
+  margin-bottom: 40px;
+}
+
+/* Input Section */
+.input-section {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+#commandInput {
+  flex: 1;
+  padding: 16px 20px;
+  font-size: 1.0625rem;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
+  background: #f5f5f7;
+  transition: all 0.2s ease;
+}
+
+#commandInput:focus {
+  outline: none;
+  border-color: #0071e3;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+}
+
+#commandInput::placeholder {
+  color: #86868b;
+}
+
+#parseBtn {
+  padding: 16px 32px;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  background: #0071e3;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#parseBtn:hover {
+  background: #0077ed;
+}
+
+#parseBtn:active {
+  transform: scale(0.98);
+}
+
+#parseBtn:disabled {
+  background: #d2d2d7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+  color: #86868b;
+  font-size: 1rem;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #d2d2d7;
+  border-top-color: #0071e3;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Result */
+.result {
+  background: #f5f5f7;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.result-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.intent-badge {
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 100px;
+  background: #0071e3;
+  color: #ffffff;
+}
+
+.intent-badge.unknown { background: #86868b; }
+.intent-badge.file_convert { background: #34c759; }
+.intent-badge.text_summarize { background: #ff9500; }
+.intent-badge.image_process { background: #af52de; }
+.intent-badge.data_analyze { background: #0071e3; }
+
+#output {
+  background: #1d1d1f;
+  color: #f5f5f7;
+  padding: 20px;
+  border-radius: 12px;
+  font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* History */
+.history {
+  border-top: 1px solid #d2d2d7;
+  padding-top: 32px;
+}
+
+.history h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 16px;
+}
+
+#historyList {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+#historyList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #f5f5f7;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#historyList li:hover {
+  background: #e8e8ed;
+}
+
+.command-text {
+  font-size: 0.9375rem;
+  color: #1d1d1f;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#historyList .intent-badge {
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container {
+    padding: 40px 20px;
+  }
+
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .input-section {
+    flex-direction: column;
+  }
+
+  #parseBtn {
+    width: 100%;
+  }
+}
